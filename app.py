@@ -67,7 +67,7 @@ app_ui = ui.page_navbar(
     ui.nav(ui.a("App", href="https://prabha23.shinyapps.io/cintel-04-reactive/")),
     ui.nav(ui.a("Examples", href="https://shinylive.io/py/examples/")),
     ui.nav(ui.a("Widgets", href="https://shiny.rstudio.com/py/docs/ipywidgets.html")),
-    title=ui.h1("PRABHA Dashboard"),
+    title=ui.h1("Prabha Dashboard"),
 )
 
 
