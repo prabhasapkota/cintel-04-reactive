@@ -54,7 +54,7 @@ def get_mtcars_server_functions(input, output, session):
         mtcars_mpg_filter = (df["mpg"] >= input_min) & (df["mpg"] <= input_max)
         df = df[mtcars_mpg_filter]
 
-        horse_power_filter = df["hp"] <= input.MTCARS_MAX_HP()
+        horse_power_filter = df["hp"] < input.MTCARS_MAX_HP()
         df = df[horse_power_filter]
 
 
