@@ -28,10 +28,6 @@ from relationships_server import get_relationships_server_functions
 from relationships_ui_inputs import get_relationships_inputs
 from relationships_ui_outputs import get_relationships_outputs
 
-from tips_server import get_tips_server_functions
-from tips_ui_inputs import get_tips_inputs
-from tips_ui_outputs import get_tips_outputs
-
 from util_logger import setup_logger
 
 logger, logname = setup_logger(__name__)
@@ -66,13 +62,7 @@ app_ui = ui.page_navbar(
             get_relationships_outputs(),
         ),
     ),
-    ui.nav(
-        "Tips",
-        ui.layout_sidebar(
-            get_tips_inputs(),
-            get_tips_outputs(),
-        ),
-    ),
+    
     ui.nav(ui.a("About", href="https://github.com/prabhasapkota")),
     ui.nav(ui.a("GitHub", href="https://github.com/prabhasapkota/cintel-04-reactive")),
     ui.nav(ui.a("App", href="https://prabha23.shinyapps.io/cintel-04-reactive/")),
@@ -90,7 +80,7 @@ def server(input, output, session):
     get_mtcars_server_functions(input, output, session)
     get_penguins_server_functions(input, output, session)
     get_relationships_server_functions(input, output, session)
-    get_tips_server_functions(input, output, session)
+    
     
 # app = App(app_ui, server, debug=True)
 app = App(app_ui, server)
