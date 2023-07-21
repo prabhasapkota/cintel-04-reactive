@@ -35,11 +35,11 @@ def get_tips_server_functions(input, output, session):
     reactive_df = reactive.Value()
 
     @reactive.Effect
-    @reactive.event(input.TIP_RANGE,)
+    @reactive.event(input.TIPS_RANGE,)
     def _():
         df = original_df.copy()
 
-        input_range = input.TIP_RANGE()
+        input_range = input.TIPS_RANGE()
         input_min = input_range[1]
         input_max = input_range[10]
 
@@ -62,7 +62,7 @@ def get_tips_server_functions(input, output, session):
 
     @output
     @render.text
-    def tips_record_count_string():
+    def tip_record_count_string():
         filtered_df = reactive_df.get()
         filtered_count = len(filtered_df)
         message = f"Showing {filtered_count} of {total_count} records"

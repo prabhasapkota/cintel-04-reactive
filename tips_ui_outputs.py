@@ -12,8 +12,8 @@ def get_tips_outputs():
         ui.h2("Main Panel with Reactive Output"),
         ui.tags.hr(),
         ui.tags.section(
-            ui.h3("Filtered Cars : Charts"),
-            output_widget("tips_output_widget1"),
+            ui.h3("Filtered Tip : Charts"),
+            output_widget("tipS_output_widget1"),
             ui.tags.hr(),
             ui.h3("Filtered Tips Table"),
             ui.output_text("tips_record_count_string"),
