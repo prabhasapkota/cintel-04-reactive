@@ -28,6 +28,10 @@ from relationships_server import get_relationships_server_functions
 from relationships_ui_inputs import get_relationships_inputs
 from relationships_ui_outputs import get_relationships_outputs
 
+from tips_server import get_tips_server_functions
+from tips_ui_inputs import get_tips_inputs
+from tips_ui_outputs import get_tips_outputs
+
 from util_logger import setup_logger
 
 logger, logname = setup_logger(__name__)
