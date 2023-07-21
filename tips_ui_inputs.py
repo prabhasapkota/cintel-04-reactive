@@ -10,8 +10,8 @@ def get_tips_inputs():
         ui.h2("Tips Interaction"),
         ui.tags.hr(),
         ui.input_slider(
-            "TIPS_RANGE",
-            "Tips($)",
+            "TIP_RANGE",
+            "Tip",
             min=1,
             max=10,
             value=[1, 10],
