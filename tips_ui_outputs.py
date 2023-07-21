@@ -13,11 +13,11 @@ def get_tips_outputs():
         ui.tags.hr(),
         ui.tags.section(
             ui.h3("Filtered Tip : Charts"),
-            output_widget("tip_output_widget1"),
+            output_widget("tips_output_widget1"),
             ui.tags.hr(),
-            ui.h3("Filtered Tip Table"),
-            ui.output_text("tip_record_count_string"),
-            ui.output_table("tip_filtered_table"),
+            ui.h3("Filtered Tips Table"),
+            ui.output_text("tips_record_count_string"),
+            ui.output_table("tips_filtered_table"),
             ui.tags.hr(),
         ),
     )

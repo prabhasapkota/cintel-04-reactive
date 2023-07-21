@@ -11,9 +11,7 @@ to this server code is critical. They are case sensitive and must match exactly.
 
 import pathlib
 from shiny import render , reactive
-import matplotlib.pyplot as plt
 import pandas as pd
-from plotnine import aes, geom_point, ggplot, ggtitle
 from shinywidgets import render_widget
 import plotly.express as px
 
@@ -35,14 +33,11 @@ def get_tip_server_functions(input, output, session):
     reactive_df = reactive.Value()
 
     @reactive.Effect
-    @reactive.event(input.TIP_RANGE,)
+    @reactive.event(input.TIPS_MAX_TIP,)
     def _():
         df = original_df.copy()
 
-        input_range = input.TIP_RANGE()
-        input_min = input_range[1]
-        input_max = input_range[10]
-
+        
         """
         Filter the dataframe to just those greater than or equal to the min
         and less than or equal to the max
@@ -51,8 +46,7 @@ def get_tip_server_functions(input, output, session):
         You must be familiar with the dataset to know the column names.
         """
 
-        tips_filter = (df["tip"] >= input_min) & (df["tip"] <= input_max)
-        
+        df = (df["tip"] <= input.TIPS_MAX_TIP())
 
     # Set the reactive value
     reactive_df.set(df)
@@ -80,7 +74,7 @@ def get_tip_server_functions(input, output, session):
     @render_widget
     def tips_output_widget1():
         df = reactive_df.get()
-        plotly_express_plot = px.scatter(df, x="total bill", y="tip")
+        plotly_express_plot = px.scatter(df, x="total bill", y="tip" , color="size" , size="time")
         plotly_express_plot.update_layout(title="Tips with Plotly Express")
         return plotly_express_plot
 
