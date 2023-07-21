@@ -7,17 +7,17 @@ Provide the exact name of the server function that will provide the output.
 from shiny import ui
 from shinywidgets import output_widget
 
-def get_tips_outputs():
+def get_tip_outputs():
     return ui.panel_main(
         ui.h2("Main Panel with Reactive Output"),
         ui.tags.hr(),
         ui.tags.section(
             ui.h3("Filtered Tip : Charts"),
-            output_widget("tipS_output_widget1"),
+            output_widget("tip_output_widget1"),
             ui.tags.hr(),
-            ui.h3("Filtered Tips Table"),
-            ui.output_text("tips_record_count_string"),
-            ui.output_table("tips_filtered_table"),
+            ui.h3("Filtered Tip Table"),
+            ui.output_text("tip_record_count_string"),
+            ui.output_table("tip_filtered_table"),
             ui.tags.hr(),
         ),
     )

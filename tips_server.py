@@ -35,11 +35,11 @@ def get_tips_server_functions(input, output, session):
     reactive_df = reactive.Value()
 
     @reactive.Effect
-    @reactive.event(input.TIPS_RANGE,)
+    @reactive.event(input.TIP_RANGE,)
     def _():
         df = original_df.copy()
 
-        input_range = input.TIPS_RANGE()
+        input_range = input.TIP_RANGE()
         input_min = input_range[1]
         input_max = input_range[10]
 
@@ -71,14 +71,14 @@ def get_tips_server_functions(input, output, session):
     
     @output
     @render.table
-    def tips_filtered_table():
+    def tip_filtered_table():
         filtered_df = reactive_df.get()
         return filtered_df
 
 
     @output
     @render_widget
-    def tips_output_widget1():
+    def tip_output_widget1():
         df = reactive_df.get()
         plotly_express_plot = px.scatter(df, x="total bill", y="tip")
         plotly_express_plot.update_layout(title="Tips with Plotly Express")
@@ -87,7 +87,7 @@ def get_tips_server_functions(input, output, session):
 
     # Return a list of function names for use in reactive outputs
     return [
-        tips_record_count_string,
-        tips_filtered_table,
-        tips_output_widget1
+        tip_record_count_string,
+        tip_filtered_table,
+        tip_output_widget1
        ]
