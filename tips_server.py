@@ -62,7 +62,7 @@ def get_tip_server_functions(input, output, session):
 
     @output
     @render.text
-    def tip_record_count_string():
+    def tips_record_count_string():
         filtered_df = reactive_df.get()
         filtered_count = len(filtered_df)
         message = f"Showing {filtered_count} of {total_count} records"
@@ -71,14 +71,14 @@ def get_tip_server_functions(input, output, session):
     
     @output
     @render.table
-    def tip_filtered_table():
+    def tips_filtered_table():
         filtered_df = reactive_df.get()
         return filtered_df
 
 
     @output
     @render_widget
-    def tip_output_widget1():
+    def tips_output_widget1():
         df = reactive_df.get()
         plotly_express_plot = px.scatter(df, x="total bill", y="tip")
         plotly_express_plot.update_layout(title="Tips with Plotly Express")
@@ -87,7 +87,7 @@ def get_tip_server_functions(input, output, session):
 
     # Return a list of function names for use in reactive outputs
     return [
-        tip_record_count_string,
-        tip_filtered_table,
-        tip_output_widget1
+        tips_record_count_string,
+        tips_filtered_table,
+        tips_output_widget1
        ]

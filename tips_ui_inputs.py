@@ -5,7 +5,7 @@ Purpose: Provide user interaction options for the Tips dataset.
 from shiny import ui
 
 
-def get_tip_inputs():
+def get_tips_inputs():
     return ui.panel_sidebar(
         ui.h2("Tip Interaction"),
         ui.tags.hr(),

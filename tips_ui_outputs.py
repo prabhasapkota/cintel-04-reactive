@@ -7,7 +7,7 @@ Provide the exact name of the server function that will provide the output.
 from shiny import ui
 from shinywidgets import output_widget
 
-def get_tip_outputs():
+def get_tips_outputs():
     return ui.panel_main(
         ui.h2("Main Panel with Reactive Output"),
         ui.tags.hr(),
