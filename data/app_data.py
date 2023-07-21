@@ -49,5 +49,10 @@ les_mis = pd.DataFrame(les_mis_data["links"])
 les_mis.to_excel("les_mis.xlsx")
 les_mis.to_csv("les_mis.csv")
 
+tips_df = sns.load_dataset("tips")
+tips_df.to_excel(data_folder.joinpath("tips.xlsx"))
+tips_df.to_csv(data_folder.joinpath("tips.csv"))
+
+
 # url="https://webpath/to/your/data.csv"
 # df=pd.read_csv(url)
