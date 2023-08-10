@@ -25,7 +25,7 @@ logger, logname = setup_logger(__name__)
 def get_tip_server_functions(input, output, session):
     """Define functions to create UI outputs."""
 
-    p = pathlib.Path(__file__).parent.joinpath("data").joinpath("mtcars.csv")
+    p = pathlib.Path(__file__).parent.joinpath("data").joinpath("tips.csv")
     # logger.info(f"Reading data from {p}")
     original_df = pd.read_csv(p)
     total_count = len(original_df)
@@ -33,7 +33,7 @@ def get_tip_server_functions(input, output, session):
     reactive_df = reactive.Value()
 
     @reactive.Effect
-    @reactive.event(input.TIPS_MAX_TIP,)
+    @reactive.event(input.TIPS_MAX_TIP)
     def _():
         df = original_df.copy()
 
@@ -48,8 +48,8 @@ def get_tip_server_functions(input, output, session):
 
         df = (df["tip"] <= input.TIPS_MAX_TIP())
 
-    # Set the reactive value
-    reactive_df.set(df)
+        # Set the reactive value
+        reactive_df.set(df)
 
     
 
