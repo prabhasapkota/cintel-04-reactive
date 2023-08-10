@@ -73,7 +73,7 @@ app_ui = ui.page_navbar(
 
 
 def server(input, output, session):
-    """Define functions to create UI outputs."""
+   
 
     logger.info("Starting server...")
     get_flights_server_functions(input, output, session)
