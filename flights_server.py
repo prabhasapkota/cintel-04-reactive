@@ -52,11 +52,18 @@ def get_flights_server_functions(input, output, session):
         # first, drop the unnamed index column
         # axis=1 means drop a column, axis=0 means drop a row
         df = df.drop(df.columns[0], axis=1)
+ 
+        # Convert month abbreviations to numeric format (e.g., "Jan" to "01")
+        month_mapping = {
+            "Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
+            "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
+            "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"
+            } 
+        df["year"] = df["year"].astype(str)
+        df["month"] = df["month"].map(month_mapping)
 
-        # Create a new column using pd.to_datetime() method for filtering
-        year_string = df["year"].astype(str)
-        month_string = df["month"].astype(str)
-        df["Date"] = pd.to_datetime(year_string + "-" + month_string)
+        date_format = "%Y-%m"
+        df["Date"] = pd.to_datetime(df["year"] + "-" + df["month"], format=date_format)
 
         # Convert datetime to just the date, no time (datetime objects have both)
         df["Date"] = df["Date"].dt.date
